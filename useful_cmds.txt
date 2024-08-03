@@ -6,3 +6,8 @@ git commit
     --amend # redo the previous commit if you need to update it. If want to add more 
             # files do git add first then this command
 
+
+.gitignore
+    logs/ # for folders
+    # gitignore.oi for templates
+
