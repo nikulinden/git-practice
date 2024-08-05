@@ -11,3 +11,11 @@ git commit
     logs/ # for folders
     # gitignore.oi for templates
 
+git branch
+git branch <branch-name>        # create a branch
+git switch <branch-name>        # switch between the branches
+git switch -c <branch-name>     # create and switch oneliner
+
+git checkout -b <branch-name>   # create and switch
+
+
