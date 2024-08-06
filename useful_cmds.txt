@@ -16,6 +16,14 @@ git branch <branch-name>        # create a branch
 git switch <branch-name>        # switch between the branches
 git switch -c <branch-name>     # create and switch oneliner
 
-git checkout -b <branch-name>   # create and switch
+git checkout -b <branch-name>   # create and switch; also cmd does a lot more
+
+git branch -d <branch-name>     # delete branch
+git branch -D <branch-name>     # forcefully delete a branch
+git branch -m <new-brand-name>  # rename branch name; has to switch to the branch you want to rename first 
+
+
+
+
 
 
