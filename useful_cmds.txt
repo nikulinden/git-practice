@@ -40,10 +40,76 @@ git merge bugfix
 
 
 # merge conflicts
-# 1. open up the files with merge conflicts
+# 1. Open up the files with merge conflicts
 # 2. Edit the files to remove the conflics. Decide which branch's content you want to keep in each conflict. Or keep both
 # 3. Remove the conflict markers
-# 4. Add changes aand make a commit
+# 4. Add changes and make a commit
 
+=============================================
+# git diff
+=============================================
 
+git diff                    # shows commits that are not staged
+git diff HEAD               # shows changes since last commit
+git diff HEAD HEAD~1
+git diff --staged
+git diff --cached           # both cmds show staged diff
 
+# by adding file or files name at the end, one can diff for specific files
+
+git diff branch1..branch2   # compare branches
+git diff commit1..commit2   # compare commits - insert hashes
+
+---------------------------------------------
+find . -name '.DS_Store' -delete
+find . -name '.DS_Store' -print0 | xargs -0 git rm --cached
+git rm --cached `find . -name ".DS_Store"`
+git commit -m "Remove .DS_Store files"
+
+echo '.DS_Store' >> .gitignore
+git add .gitignore
+git commit -m "Add .DS_Store to .gitignore"
+----------------------------------------------
+
+====================================================
+git stash
+
+====================================================
+
+git stash               # stash unstaged changes
+git stash pop           # apply and pop the stashed changes
+git stash apply         # apply stashed changes but do not remove them from the stash stack
+
+git stash list          # list the existing changes that are stashed on the stack
+git stash apply stash@{2}   # apply specific stash
+
+git stash drop stash@{2}    # drop specific stash
+git stash clear             # clear all stashes
+
+=====================================================================
+git checkout <commit-hash>                     # time travel, detached HEAD
+# potentially branch off normally
+git switch main                                # switch back to main, re-attach HEAD
+
+git checkout HEAD~1                            # reference a commit 1 prior to HEAD. 1 can be N
+git switch -                                   # go back to prev branch
+
+-------------------------------------------------------------------------
+# discard changes
+
+git checkout HEAD <filename - optional>          # discards unstaged changes
+# same as 
+git checkout -- <filename - optional>
+
+# new command 'restore'
+git restore <filename - optional>               # same as above
+git restore --source HEAD~1 <filename>          # revert to an N commit but no time travel
+git restore <filename>                          # revert the above change
+
+git restore --staged <filename>                 # remove a file from staged 
+
+git reset <commit hash>                         # reset to a specific commit but keep changes. Potentially move them to a diff branch
+
+git reset --hard <commit hash> or HEAD~N        # reset commit and changes
+
+git revert <commit hash>                        # similar but instead creates a new commit with the reverted changes
