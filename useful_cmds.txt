@@ -113,3 +113,12 @@ git reset <commit hash>                         # reset to a specific commit but
 git reset --hard <commit hash> or HEAD~N        # reset commit and changes
 
 git revert <commit hash>                        # similar but instead creates a new commit with the reverted changes
+
+
+======================================================
+# git push <remote> <branch>
+git push origin main
+
+# git push <remote> <local-branch>:<remote-branch> - point local branch to a different remote branch - uncommon
+git push origin pancake:main 
+
