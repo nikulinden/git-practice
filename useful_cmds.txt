@@ -122,3 +122,12 @@ git push origin main
 # git push <remote> <local-branch>:<remote-branch> - point local branch to a different remote branch - uncommon
 git push origin pancake:main 
 
+
+======================================================
+# switch to a remote branch that is not local yet. Main is tracked by origin/main automatically
+git switch <branch-name>
+
+git fetch                       # fetch from remote but not in the workspace but origin/main e.g.
+git fetch remote origin
+
+
