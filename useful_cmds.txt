@@ -130,4 +130,55 @@ git switch <branch-name>
 git fetch                           # fetch from remote but not in the workspace but origin/main e.g.
 git fetch origin <branch-name>      # fetch a specific branch
 
+git pull 
+git pull origin <branch-name>       # pulls all the way to local workspace
 
+=======================================================
+# rebase
+# - as an alternative to merge; re-writing history to make it cleaner and more linear
+# - as a cleanup tool
+
+# can be done after or in place of a merge
+git switch feature
+git rebase master
+
+# only rebase on master onto your feature so you do not mess up shared commit history
+
+# interactive rebase as a cleanup tool usage
+git rebase -i HEAD~4
+
+================================================
+git tag
+git checkout <tag>
+git diff <tag1>..<tag2>
+
+# creating tags
+# lightweight tag
+git tag <tagname>
+
+# annotated tag
+git tag -a <tagname>
+git show <tagname> # will show info in the annotated tag
+
+# tag previous commits, both lightweight and annotated (with -a option)
+git tag <tagname> <commit>
+
+# move the tag to a different commit
+git tag <tagname> <commit> -f
+
+# delete tags
+git tag -d <tagname>
+
+# tags need to be pushed to remote
+git push <remote name> <tagname>        # single tag
+git push <remote name> --tags            # all tags
+
+================================================
+#reflogs - are only local
+git reflog show HEAD/ <branch name>
+git reflog show HEAD@{N} # not to confuse with HEAD~N, which are commits
+
+# timebase reflog qualifiers
+git diff main main@{yesterday}
+git reflog show HEAD@{two.day.ago}
+git checkout main@{1.week.ago}
